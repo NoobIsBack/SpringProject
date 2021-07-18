@@ -1,13 +1,25 @@
-package com.mayank.main;
+package com.mayank;
 
-import com.mayank.entity.Expense;
-import com.mayank.repository.ExpenseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 import java.util.List;
 
+//breakfast
+//@EnableJpaRepositories(basePackages={"com.mayank.repository"})
+//@SpringBootApplication()
+
+//@ComponentScan("com.mayank")
+//@SpringBootApplication(scanBasePackages = {
+//        "com.mayank.test"
+//})
+//@ComponentScan(basePackages = {"com.mayank.test"})
+//@EnableJpaRepositories(basePackages = "com.mayank.test")
+@SpringBootApplication
 public class ExpenseApp implements CommandLineRunner {
 
     @Autowired
@@ -35,11 +47,8 @@ public class ExpenseApp implements CommandLineRunner {
         System.out.println("How much does the break fast cost");
         breakafast.forEach(item -> System.out.println(item));
 
-        List<Expense> expensiveItems = repository.fetchProductsWithPrice(200);
+//        List<Expense> expensiveItems = repository.fetchProductsWithPrice(200);
         System.out.println("Expensive Items: ");
 //        expensiveItems.iterator(item -> System.out.println(item));
-
-
-
     }
 }
