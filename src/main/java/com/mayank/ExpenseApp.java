@@ -1,5 +1,7 @@
 package com.mayank;
 
+import com.mayank.entity.EntityB;
+import com.mayank.repository.EntityBRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -25,12 +27,24 @@ public class ExpenseApp implements CommandLineRunner {
     @Autowired
     ExpenseRepository repository;
 
+    @Autowired
+    EntityBRepository entityBRepository;
+
     public static void main(String[] args) {
         SpringApplication.run(ExpenseApp.class, args);
     }
 
     @Override
     public void run(String... strings) throws Exception {
+//        call mysql
+//        callMySql();
+
+//        calling cassandra
+        EntityB temp = new EntityB("name", "desc");
+        entityBRepository.save(temp);
+    }
+
+    public void callMySql() {
         repository.save(new Expense("breakfast", 5));
         repository.save(new Expense("coffee", 21));
         repository.save(new Expense("chai", 15));
