@@ -1,7 +1,7 @@
 package com.mayank;
 
 import com.mayank.entity.EntityB;
-//import com.mayank.repository.EntityBRepository;
+import com.mayank.repository.EntityBRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -27,8 +27,8 @@ public class ExpenseApp implements CommandLineRunner {
     @Autowired
     ExpenseRepository repository;
 //
-//    @Autowired
-//    EntityBRepository entityBRepository;
+    @Autowired
+    EntityBRepository entityBRepository;
 
     public static void main(String[] args) {
         SpringApplication.run(ExpenseApp.class, args);
